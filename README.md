@@ -1,144 +1,133 @@
-Kredi Kartı Müşteri Kaybı (Churn) Tahmini
-Makine Öğrenmesi Uygulaması
-1. Problem Tanımı
+Kredi Kartı Musteri Kaybi (Churn) Tahmini
 
-Bu çalışmanın amacı, bankacılık sektöründe müşteri kaybını (churn) önceden tahmin edebilecek bir makine öğrenmesi modeli geliştirmektir.
+Makine Ogrenmesi Uygulamasi
 
-Müşteri kaybı, şirketlerin kârlılığını doğrudan etkileyen önemli bir problemdir. Mevcut müşteriyi elde tutmanın maliyeti, yeni müşteri kazanmaya kıyasla daha düşüktür. Bu nedenle churn tahmini, stratejik karar alma süreçlerinde kritik rol oynamaktadır.
+1. Problem Tanimi
 
-2. Veri Seti Hakkında Bilgi
+Bu calismanin amaci, bankacilik sektorunde musteri kaybini (churn) onceden tahmin edebilecek bir makine ogrenmesi modeli gelistirmektir.
 
-Veri seti 10.000 gözlem ve 11 değişkenden oluşmaktadır.
+Musteri kaybi, sirketlerin karliligini dogrudan etkileyen onemli bir problemdir. Mevcut musteriyi elde tutmanin maliyeti, yeni musteri kazanmaya kiyasla daha dusuktur. Bu nedenle churn tahmini, stratejik karar alma sureclerinde kritik rol oynamaktadir.
 
-Değişkenler:
+2. Veri Seti Hakkinda Bilgi
+
+Veri seti 10000 gozlem ve 11 degiskenden olusmaktadir.
+
+Degiskenler
 
 CreditScore (Kredi Skoru)
 
-Geography (Ülke)
+Geography (Ulke)
 
 Gender (Cinsiyet)
 
-Age (Yaş)
+Age (Yas)
 
-Tenure (Şirkette Kalma Süresi – Ay)
+Tenure (Sirkette Kalma Suresi - Ay)
 
 Balance (Bakiye)
 
-NumOfProducts (Ürün Sayısı)
+NumOfProducts (Urun Sayisi)
 
-HasCrCard (Kredi Kartı Var mı)
+HasCrCard (Kredi Karti Var mi)
 
-IsActiveMember (Aktif Üye mi)
+IsActiveMember (Aktif Uye mi)
 
-EstimatedSalary (Tahmini Maaş)
+EstimatedSalary (Tahmini Maas)
 
-Exited (Churn – Hedef Değişken)
+Exited (Churn - Hedef Degisken)
 
-Veri setinde eksik gözlem bulunmamaktadır.
+Veri setinde eksik gozlem bulunmamaktadir.
 
-3. Keşifsel Veri Analizi (EDA)
-3.1 Kategorik Değişkenler
-
-Ülke Dağılımı
+3. Kesifsel Veri Analizi (EDA)
+3.1 Kategorik Degiskenler
+Ulke Dagilimi
 
 Fransa: %50
 
 Almanya: %25
 
-İspanya: %25
+Ispanya: %25
 
-En yüksek churn oranı Almanya’dadır.
+En yuksek churn orani Almanya’dadir
 
 Cinsiyet
 
-Erkek müşteriler çoğunluktadır.
+Erkek musteriler sayica daha fazladir
 
-Kadın müşterilerin churn oranı daha yüksektir.
+Kadin musterilerin churn orani daha yuksektir
 
-Ürün Sayısı
+Urun Sayisi
 
-2 ürün kullanan müşteriler en düşük churn oranına sahiptir.
+2 urun kullanan musteriler en dusuk churn oranina sahiptir
 
-3 ve 4 ürün kullanan müşterilerde churn riski daha yüksektir.
+3 ve 4 urun kullanan musterilerde churn riski daha yuksektir
 
-Aktif Üyelik
+Aktif Uyelik
 
-Aktif olmayan müşterilerde churn olasılığı belirgin şekilde yüksektir.
+Aktif olmayan musterilerde churn olasiligi daha yuksektir
 
-Hedef Değişken
+Hedef Degisken (Churn)
 
-%79,6: Churn Yok
+Churn Yok: %79.6
 
-%20,4: Churn Var
+Churn Var: %20.4
 
-Veri seti dengesizdir.
+Veri seti dengesizdir
 
-3.2 Sayısal Değişkenler
+3.2 Sayisal Degiskenler
 
-Kredi Skoru
+Kredi skoru yaklasik normal dagilim gostermektedir
 
-Yaklaşık normal dağılım göstermektedir.
+Yas ortalamasi yaklasik 39’dur
 
-Yaş
+Yas arttikca churn olasiligi artmaktadir
 
-Ortalama yaş ≈ 39
+Yuksek bakiyeli musterilerde churn daha fazladir
 
-Yaş arttıkça churn olasılığı artmaktadır.
-
-Bakiye
-
-Çok sayıda müşteri sıfır bakiyeye sahiptir.
-
-Yüksek bakiyeli müşterilerde churn daha fazladır.
-
-Tahmini Maaş
-
-Uniforma yakın dağılım
-
-Churn ile ilişkisi zayıftır.
+Tahmini maas ile churn arasinda guclu bir iliski bulunmamaktadir
 
 4. Korelasyon Analizi
 
-Değişkenler arasındaki korelasyonlar genel olarak düşüktür.
+Degiskenler arasindaki korelasyonlar genellikle dusuktur
 
-Churn ile en ilişkili değişkenler:
+Churn ile en iliskili degiskenler:
 
-Yaş (pozitif ilişki)
+Yas
 
-Bakiye (zayıf pozitif ilişki)
+Bakiye
 
-5. Özellik Mühendisliği (Feature Engineering)
+5. Ozellik Muhendisligi (Feature Engineering)
 
-Model performansını artırmak için yeni değişkenler üretilmiştir:
+Model performansini artirmak amaciyla yeni degiskenler uretilmistir.
 
-Bakiye Durumu (Yok, Düşük, Orta, Yüksek, Çok Yüksek)
+Bakiye Durumu
 
-Kredi Skoru Durumu (Düşük, Orta, Yüksek)
+Kredi Skoru Durumu
 
-Müşteri Segmenti (Premium, Standart, Riskli)
+Musteri Segmenti
 
-Müşteri Kıdem Kategorisi
+Musteri Kidem Kategorisi
 
-Ortalama Aylık Gelir
+Ortalama Aylik Gelir
 
-Kategorik değişkenler için:
+Kategorik degiskenler icin:
 
 Label Encoding
 
-One-Hot Encoding
+One Hot Encoding
 
-Sayısal değişkenler için:
+Sayisal degiskenler icin:
 
-Z-Score Standardizasyonu
+Z Score standardizasyonu
 
-6. Modelleme Süreci
-Kullanılan Modeller
+6. Modelleme Sureci
+Kullanilan Modeller
 
 Lojistik Regresyon
 
 KNN
 
-Karar Ağaçları
+Karar Agaclari
 
 Random Forest
 
@@ -154,69 +143,70 @@ Naive Bayes
 
 Gradient Boosting
 
-Sınıf dengesizliği nedeniyle SMOTE uygulanmıştır.
+Sinif dengesizligi nedeniyle SMOTE uygulanmistir.
 
-7. En İyi Model: LightGBM (SMOTE Sonrası)
-Performans Sonuçları:
+7. En Iyi Model
+
+LightGBM modeli, SMOTE uygulamasi sonrasinda en iyi performansi gostermistir.
+
+Performans Sonuclari
 
 Accuracy (Test): %90
 
 Recall (Churn): %89
 
-F1-Score: %90
+F1 Score: %90
 
 AUC: %96
 
-Model, hem churn hem churn olmayan sınıflar için dengeli ve güçlü performans göstermiştir.
+Model, churn ve churn olmayan siniflar icin dengeli bir performans sergilemistir.
 
-8. Model Yorumlanabilirliği (SHAP)
+8. Model Yorumlanabilirligi (SHAP)
 
-En önemli değişkenler:
+En onemli degiskenler:
 
-Yaş
+Yas
 
-Ürün Sayısı
+Urun Sayisi
 
-Aktif Üyelik
+Aktif Uyelik
 
 Bakiye
 
-Ülke
+Ulke
 
-Şirkette Kalma Süresi
+Sirkette Kalma Suresi
 
-46–65 yaş arası ve aktif olmayan müşteriler, churn açısından en riskli gruptur.
+46-65 yas arasi ve aktif olmayan musteriler churn acisindan en riskli gruptur.
 
-9. İş İçgörüleri
+9. Is Icgoruleri
 
-Yaşlı müşterilere özel sadakat kampanyaları
+Yasli musterilere ozel sadakat kampanyalari uygulanabilir
 
-Aktif olmayan müşterileri yeniden kazanma stratejileri
+Aktif olmayan musteriler icin geri kazanma stratejileri gelistirilebilir
 
-Az ürün kullanan müşterilere çapraz satış
+Az urun kullanan musterilere capraz satis yapilabilir
 
-Almanya özelinde müşteri tutundurma politikaları
+Almanya icin ozel musteri tutundurma politikalari olusturulabilir
 
-10. Kullanılan Teknolojiler
+10. Kullanilan Teknolojiler
 
 Python
 
-Pandas, NumPy
+Pandas
 
-Scikit-learn
+NumPy
 
-LightGBM, XGBoost, CatBoost
+Scikit Learn
+
+LightGBM
+
+XGBoost
+
+CatBoost
 
 SHAP
 
-Matplotlib, Seaborn
+Matplotlib
 
-11. Kaynakça
-
-İST405 Veri Madenciliği Ders Notları
-
-GeeksforGeeks
-
-Medium (SMOTE ve ML makaleleri)
-
-Plotly & Data Visualization
+Seaborn
