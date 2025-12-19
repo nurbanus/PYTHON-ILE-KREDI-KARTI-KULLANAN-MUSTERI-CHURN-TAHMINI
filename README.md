@@ -1,14 +1,14 @@
-Kredi Kartı Musteri Kaybi (Churn) Tahmini
+# Kredi Kartı Musteri Kaybi (Churn) Tahmini
 
-Makine Ogrenmesi Uygulamasi
+## Makine Ogrenmesi Uygulamasi
 
-1. Problem Tanimi
+### 1. Problem Tanimi
 
 Bu calismanin amaci, bankacilik sektorunde musteri kaybini (churn) onceden tahmin edebilecek bir makine ogrenmesi modeli gelistirmektir.
 
 Musteri kaybi, sirketlerin karliligini dogrudan etkileyen onemli bir problemdir. Mevcut musteriyi elde tutmanin maliyeti, yeni musteri kazanmaya kiyasla daha dusuktur. Bu nedenle churn tahmini, stratejik karar alma sureclerinde kritik rol oynamaktadir.
 
-2. Veri Seti Hakkinda Bilgi
+### 2. Veri Seti Hakkinda Bilgi
 
 Veri seti 10000 gozlem ve 11 degiskenden olusmaktadir.
 
@@ -38,9 +38,9 @@ Exited (Churn - Hedef Degisken)
 
 Veri setinde eksik gozlem bulunmamaktadir.
 
-3. Kesifsel Veri Analizi (EDA)
-3.1 Kategorik Degiskenler
-Ulke Dagilimi
+### 3. Kesifsel Veri Analizi (EDA)
+#### 3.1 Kategorik Degiskenler
+##### Ulke Dagilimi
 
 Fransa: %50
 
@@ -50,23 +50,23 @@ Ispanya: %25
 
 En yuksek churn orani Almanya’dadir
 
-Cinsiyet
+##### Cinsiyet
 
 Erkek musteriler sayica daha fazladir
 
 Kadin musterilerin churn orani daha yuksektir
 
-Urun Sayisi
+##### Urun Sayisi
 
 2 urun kullanan musteriler en dusuk churn oranina sahiptir
 
 3 ve 4 urun kullanan musterilerde churn riski daha yuksektir
 
-Aktif Uyelik
+##### Aktif Uyelik
 
 Aktif olmayan musterilerde churn olasiligi daha yuksektir
 
-Hedef Degisken (Churn)
+##### Hedef Degisken (Churn)
 
 Churn Yok: %79.6
 
@@ -74,7 +74,7 @@ Churn Var: %20.4
 
 Veri seti dengesizdir
 
-3.2 Sayisal Degiskenler
+#### 3.2 Sayisal Degiskenler
 
 Kredi skoru yaklasik normal dagilim gostermektedir
 
@@ -86,7 +86,7 @@ Yuksek bakiyeli musterilerde churn daha fazladir
 
 Tahmini maas ile churn arasinda guclu bir iliski bulunmamaktadir
 
-4. Korelasyon Analizi
+### 4. Korelasyon Analizi
 
 Degiskenler arasindaki korelasyonlar genellikle dusuktur
 
@@ -96,7 +96,7 @@ Yas
 
 Bakiye
 
-5. Ozellik Muhendisligi (Feature Engineering)
+### 5. Ozellik Muhendisligi (Feature Engineering)
 
 Model performansini artirmak amaciyla yeni degiskenler uretilmistir.
 
@@ -120,7 +120,7 @@ Sayisal degiskenler icin:
 
 Z Score standardizasyonu
 
-6. Modelleme Sureci
+### 6. Modelleme Sureci
 Kullanilan Modeller
 
 Lojistik Regresyon
@@ -145,7 +145,7 @@ Gradient Boosting
 
 Sinif dengesizligi nedeniyle SMOTE uygulanmistir.
 
-7. En Iyi Model
+### 7. En Iyi Model
 
 LightGBM modeli, SMOTE uygulamasi sonrasinda en iyi performansi gostermistir.
 
@@ -161,7 +161,7 @@ AUC: %96
 
 Model, churn ve churn olmayan siniflar icin dengeli bir performans sergilemistir.
 
-8. Model Yorumlanabilirligi (SHAP)
+### 8. Model Yorumlanabilirligi (SHAP)
 
 En onemli degiskenler:
 
@@ -179,7 +179,7 @@ Sirkette Kalma Suresi
 
 46-65 yas arasi ve aktif olmayan musteriler churn acisindan en riskli gruptur.
 
-9. Is Icgoruleri
+### 9. Is Icgoruleri
 
 Yasli musterilere ozel sadakat kampanyalari uygulanabilir
 
@@ -189,7 +189,7 @@ Az urun kullanan musterilere capraz satis yapilabilir
 
 Almanya icin ozel musteri tutundurma politikalari olusturulabilir
 
-10. Kullanilan Teknolojiler
+### 10. Kullanilan Teknolojiler
 
 Python
 
@@ -210,3 +210,11 @@ SHAP
 Matplotlib
 
 Seaborn
+### 11.Kaynakça
+* İST405 Veri Madenciliği Ders Notları
+
+* GeeksforGeeks
+
+* Medium (SMOTE ve Makine Öğrenmesi Makaleleri)
+
+* Plotly & Data Visualization
