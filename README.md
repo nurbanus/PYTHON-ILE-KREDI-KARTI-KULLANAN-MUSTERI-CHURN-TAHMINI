@@ -191,25 +191,25 @@ Almanya icin ozel musteri tutundurma politikalari olusturulabilir
 
 ### 10. Kullanilan Teknolojiler
 
-Python
+* Python
 
-Pandas
+* Pandas
 
-NumPy
+* NumPy
 
-Scikit Learn
+* Scikit Learn
 
-LightGBM
+* LightGBM
 
-XGBoost
+* XGBoost
 
-CatBoost
+* CatBoost
 
-SHAP
+* SHAP
 
-Matplotlib
+* Matplotlib
 
-Seaborn
+* Seaborn
 ### 11.Kaynakça
 * İST405 Veri Madenciliği Ders Notları
 
