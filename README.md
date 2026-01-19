@@ -3,6 +3,7 @@
 
 
 # Kredi Kartı Musteri Kaybi (Churn) Tahmini
+## ÖZET
 
 ## Makine Ogrenmesi Uygulamasi
 
